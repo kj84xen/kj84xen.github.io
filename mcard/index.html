@@ -36,10 +36,10 @@
 			<!--player-->
 			<div class="music">
 				<a href="javascript:music_player()">
-						<img id="m_on" src="./mcard/images/music_01_off.png" tppabs="./mcard/images/music_01_on.png" />
+						<img id="m_on" src="./images/music_01_off.png" tppabs="./images/music_01_on.png" />
 						<span style="display:none;" id="m_off">stop</span>
 				</a>
-				<audio id="audio" preload="none" loop="loop" src="./mcard/music/bgm1.mp3"></audio>
+				<audio id="audio" preload="none" loop="loop" src="./music/bgm1.mp3"></audio>
 			</div>
 			<!--//player-->
 		</section>
@@ -51,7 +51,7 @@
 						<p class="date">06月20日</p>
 					</div>
 					<div class="vertical-item photo">
-						<img src="./mcard/images/visual_01.jpg" alt="">
+						<img src="./images/visual_01.jpg" alt="">
 					</div>
 					<div class="vertical-item info">
 						<p class="p1">
@@ -185,22 +185,22 @@
 				<div class="contain">
 					<ul class="type3-list">
 						<li onclick="galleryPOP('open', 'type3', 1);">
-							<div class="box" style="background-image:url(./mcard/images/gallery_sample_01.jpg?v=0.0.2);"></div>
+							<div class="box" style="background-image:url(./images/gallery_sample_01.jpg?v=0.0.2);"></div>
 						</li>
 						<li onclick="galleryPOP('open', 'type3', 2);">
-							<div class="box" style="background-image:url(./mcard/images/gallery_sample_02.jpg?v=0.0.2);"></div>
+							<div class="box" style="background-image:url(./images/gallery_sample_02.jpg?v=0.0.2);"></div>
 						</li>
 						<li onclick="galleryPOP('open', 'type3', 3);">
-							<div class="box" style="background-image:url(./mcard/images/gallery_sample_03.jpg?v=0.0.2);"></div>
+							<div class="box" style="background-image:url(./images/gallery_sample_03.jpg?v=0.0.2);"></div>
 						</li>
 						<li onclick="galleryPOP('open', 'type3', 4);">
-							<div class="box" style="background-image:url(./mcard/images/gallery_sample_04.jpg?v=0.0.2);"></div>
+							<div class="box" style="background-image:url(./images/gallery_sample_04.jpg?v=0.0.2);"></div>
 						</li>
 						<li onclick="galleryPOP('open', 'type3', 5);">
-							<div class="box" style="background-image:url(./mcard/images/gallery_sample_05.jpg?v=0.0.2);"></div>
+							<div class="box" style="background-image:url(./images/gallery_sample_05.jpg?v=0.0.2);"></div>
 						</li>
 						<li onclick="galleryPOP('open', 'type3', 6);">
-							<div class="box" style="background-image:url(./mcard/images/gallery_sample_06.jpg?v=0.0.2);"></div>
+							<div class="box" style="background-image:url(./images/gallery_sample_06.jpg?v=0.0.2);"></div>
 						</li>
 					</ul>
 					<p class="ex">이미지를 클릭하시면 확대보기가 가능합니다.</p>
@@ -296,78 +296,8 @@
 						</dl>
 					</div>
 				</div>
-				<!-- 
-				<div class="info">
-					<div class="contain">
-						<dl>
-							<dt>기타안내</dt>
-							<dd></dd>
-						</dl>
-					</div>
-				</div>
-				 -->
 			</section>
 			<!-- 오시는길 //-->
-
-			<!--// 
-			<section class="message-section">
-				<div class="sec-tit">메시지</div>
-				<div class="sec-txt">축하 메시지를 남겨주세요.</div>
-
-				<div class="form">
-					<form action="" method="post">
-						<div class="group col-2 first">
-							<div>
-								<input type="text" name="name" id="" class="input" placeholder="이름" maxlength="20">
-							</div>
-							<div>
-								<input type="password" name="pass" id="" class="input" placeholder="비밀번호" maxlength="20">
-							</div>
-						</div>
-						<div class="group">
-							<div>
-								<textarea name="title" id="" class="textarea" maxlength="1000"></textarea>
-							</div>
-						</div>
-						<div class="buttons">
-							<button type="submit" class="btn submit">등록하기</button>
-						</div>
-					</form>
-				</div>
-
-				<div class="comment" id="comment">
-					<ul class="comment-list">
-					<c:forEach items="${list }" var="vo">
-						<li class="list">
-							<div class="tit">
-								<span class="name">${vo.name }</span>
-								<span class="date"><fmt:formatDate value="${vo.reg_date}" pattern="yyyy.MM.dd HH:mm:ss" /></span>
-							</div>
-							<p class="txt">
-								${vo.title }
-							</p>
-							<a href="javascript:void(0);" class="delete-btn" onclick="popOpen('0 1rem','messageDelete'); $('[name=seq]').val(${vo.seq});">댓글삭제</a>
-						</li>
-					</c:forEach>
-					<c:if test="${empty list }">
-						<li class="list">
-							<p class="txt" style="text-align: center;">
-								첫번째 축하 메시지를 남겨주세요.
-							</p>
-						</li>
-					</c:if>
-					</ul>
-				</div>
-
-				<div class="paging">
-					<a href="?offset=${vo.prev }#comment" class="prev">&lt;</a>
-					<c:forEach begin="${vo.z }" end="${vo.q }" step="1" var="i" varStatus="status">
-					<a href="?offset=${i+1 }#comment"<c:if test="${vo.offset eq i+1 }"> class="on"</c:if>>${i+1 }</a>
-					</c:forEach>
-					<a href="?offset=${vo.next }#comment" class="next">&gt;</a>
-				</div>
-			</section>
-			메시지 //-->
 		</div>
 
 		<!--// 푸터 -->
@@ -398,56 +328,56 @@
 		</div>
 		<div class="pop-body">
 			<ul id="pop-gallery" class="gallery list-unstyled cS-hidden roll_type01">
-				<li data-thumb="./mcard/images/gallery_sample_01.jpg?v=0.0.2">
+				<li data-thumb="./images/gallery_sample_01.jpg?v=0.0.2">
 					<div class="box">
 						<div class="pos">
 							<div class="cen">
-								<img src="./mcard/images/gallery_sample_01.jpg?v=0.0.2" />
+								<img src="./images/gallery_sample_01.jpg?v=0.0.2" />
 							</div>
 						</div>
 					</div>
 				</li>
-				<li data-thumb="./mcard/images/gallery_sample_02.jpg?v=0.0.2">
+				<li data-thumb="./images/gallery_sample_02.jpg?v=0.0.2">
 					<div class="box">
 						<div class="pos">
 							<div class="cen">
-								<img src="./mcard/images/gallery_sample_02.jpg?v=0.0.2" />
+								<img src="./images/gallery_sample_02.jpg?v=0.0.2" />
 							</div>
 						</div>
 					</div>
 				</li>
-				<li data-thumb="./mcard/images/gallery_sample_03.jpg?v=0.0.2">
+				<li data-thumb="./images/gallery_sample_03.jpg?v=0.0.2">
 					<div class="box">
 						<div class="pos">
 							<div class="cen">
-								<img src="./mcard/images/gallery_sample_03.jpg?v=0.0.2" />
+								<img src="./images/gallery_sample_03.jpg?v=0.0.2" />
 							</div>
 						</div>
 					</div>
 				</li>
-				<li data-thumb="./mcard/images/gallery_sample_04.jpg?v=0.0.2">
+				<li data-thumb="./images/gallery_sample_04.jpg?v=0.0.2">
 					<div class="box">
 						<div class="pos">
 							<div class="cen">
-								<img src="./mcard/images/gallery_sample_04.jpg?v=0.0.2" />
+								<img src="./images/gallery_sample_04.jpg?v=0.0.2" />
 							</div>
 						</div>
 					</div>
 				</li>
-				<li data-thumb="./mcard/images/gallery_sample_05.jpg?v=0.0.2">
+				<li data-thumb="./images/gallery_sample_05.jpg?v=0.0.2">
 					<div class="box">
 						<div class="pos">
 							<div class="cen">
-								<img src="./mcard/images/gallery_sample_05.jpg?v=0.0.2" />
+								<img src="./images/gallery_sample_05.jpg?v=0.0.2" />
 							</div>
 						</div>
 					</div>
 				</li>
-				<li data-thumb="./mcard/images/gallery_sample_06.jpg?v=0.0.2">
+				<li data-thumb="./images/gallery_sample_06.jpg?v=0.0.2">
 					<div class="box">
 						<div class="pos">
 							<div class="cen">
-								<img src="./mcard/images/gallery_sample_06.jpg?v=0.0.2" />
+								<img src="./images/gallery_sample_06.jpg?v=0.0.2" />
 							</div>
 						</div>
 					</div>
@@ -485,13 +415,13 @@
 	<script>
 		function music_player(){   
 			if ($('#m_off').text()=='stop'){
-				bgmStart('./mcard/music/bgm1.mp3');
+				bgmStart('./music/bgm1.mp3');
 				$('#m_off').text('start');
-				document.getElementById('m_on').src="./mcard/images/music_01_on.png" 
+				document.getElementById('m_on').src="./images/music_01_on.png" 
 			}else{
 				bgmStop();
 				$('#m_off').text('stop')
-				document.getElementById('m_on').src="./mcard/images/music_01_off.png" 
+				document.getElementById('m_on').src="./images/music_01_off.png" 
 			}
 		}
 
