@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>한태오 아가 첫번째 생일 입니다.</title>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.5,user-scalable=yes">
+	<meta name="keywords" content="한태오, 돌잔치, 초대장">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://kj84xen.github.io/ecard/">
+	<meta property="og:description" content="태오의 돌잔치 초대합니다.">
+	<meta property="og:title" content="한태오 아가 첫번째 생일 입니다.">
+	<meta property="og:image" content="https://kj84xen.github.io/ecard/01.jpg">
+
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Nanum+Myeongjo" rel="stylesheet">
+	<link rel="stylesheet" href="./static/theme/css/reset.css">
+	<link rel="stylesheet" href="./static/theme/css/common.css?version=1663927139">
+	<link rel="stylesheet" href="./static/theme/css/theme.css?version=1663927139">
+	<link rel="stylesheet" href="./static/js/lightGallery/dist/css/lightgallery.css">
+	<link rel="stylesheet" href="./static/js/jssor.slider/jssor1.css">
+	<link rel="stylesheet" href="./static/js/emojionearea/emojionearea.css">
+	<style>
+		.common_bg { background-color: #e5bca7 !important }
+	.common_bc { border-color: #e5bca7 !important }
+	.common_tc { color: #e5bca7 !important }
+			.common_sub_bg { background-color: #e5bca7 !important }
+	.common_sub_tc { color: #e5bca7 !important }
+		</style>
+</head>
+<body>
+	<div class="wrapper">
+				
+				<!-- 청첩장제목 -->
+		<div class="main_text_area common_bg common_bc" id="top">
+						한태오 아가 첫번째 생일 입니다.					</div>
+		<!-- 메인 -->
+		<div class="main_area">
+			            <img src="./static/theme/img/01.jpg">
+            		</div>
+					</div>
+						<div class="invitation_area">
+			            <img src="./static/theme/img/02.jpg">
+            		</div>
+		
+		
+		
+		<div class="traffic_area common_bg" id="traffic">
+			<div class="traffic_wrapper">
+				<div class="traffic_title">오시는 길</div>
+								<div class="traffic_map" id="traffic_map"></div>
+												<div class="traffic_place">콘래드서울 제스트 <span class="small">/ 2층</span></div>
+												<div class="traffic_address">서울 영등포구 국제금융로 10 콘래드서울 2층</div>
+												<div class="traffic_tel">TEL. 02-6137-7100</div>
+				<a href="tel:02-6137-7100" class="traffic_tel_button common_bg"><img src="./static/theme/img/phone.png"> 행사장 전화하기</a>
+								<div class="traffic_navigation">
+					<span class="bold">NAVIGATION_</span> 카카오내비 <a href="#" onclick="navi_kakao(event);"><img src="./static/theme/img/navigation_kakao.png"></a> 티맵 <a href="#" onclick="navi_tmap(event);"><img src="./static/theme/img/navigation_tmap.png"></a>
+				</div>
+								<div class="traffic_subway_title">
+					<img src="./static/theme/img/map_subway.png"> 지하철 이용시
+				</div>
+				<div class="traffic_subway">
+					▶ 지하철 이용시<br />
+⊙ 9호선 여의도역 3번 출구(도보로 6분거리)				</div>
+												<div class="traffic_bus_title">
+					<img src="./static/theme/img/map_bus.png"> 버스 이용시
+				</div>
+				<div class="traffic_bus">
+					▶ 버스 이용시<br />
+⊙  261, 360<br />
+⊙  5012, 6623				</div>
+												<div class="traffic_etc_title">
+					<img src="./static/theme/img/map_car.png"> 승용차 이용시
+				</div>
+				<div class="traffic_etc">
+					▶ 주차장 안내<br />
+⊙  주차요원의 안내를 받으세요.<br />
+※ 주차장이 혼잡하오니 대중교통을 이용하시면 편리합니다.<br />
+※ 주차료 : 최초 3시간 무료,추가 15분 당 1,000원,종일주차 45,000원<br />
+※ 발렛파킹 : 22,000원<br />
+</div>
+											</div>
+		</div>
+
+	
+		<div class="contact_member_area">
+						<div class="contact_member_wrapper">
+				        					<div class="contact_groom_wrapper">
+					<div class="contact_groom">
+						<p>아빠에게 전화하기</p>
+						<div class="contact_action">
+							<div class="contact_button">
+								<a href="tel:010-7104-4044"><img src="./static/theme/img/contact_groom_call.png"></a>
+							</div>
+							<div class="contact_button">
+								<a href="sms:010-7104-4044"><img src="./static/theme/img/contact_groom_letter.png"></a>
+							</div>
+						</div>
+					</div>
+	        						</div>
+					        					<div class="contact_bride_wrapper">
+					<div class="contact_bride">
+						<p>엄마에게 전화하기</p>
+						<div class="contact_action">
+							<div class="contact_button">
+								<a href="tel:010-8576-3749"><img src="./static/theme/img/contact_bride_call.png"></a>
+							</div>
+							<div class="contact_button">
+								<a href="sms:010-8576-3749"><img src="./static/theme/img/contact_bride_letter.png"></a>
+							</div>
+						</div>
+					</div>
+	        						</div>
+							</div>
+		</div>
+	</div>
+	<script src="./static/js/jquery.js"></script>
+	<script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=njmsapkpzi"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script src="https://player.vimeo.com/api/player.js"></script>
+	<!-- lightGallery -->
+	<script src="./static/js/lightGallery/dist/js/lightgallery.min.js"></script>
+    <script src="./static/js/lightGallery/lib/jquery.mousewheel.min.js"></script>
+    <script src="./static/js/lightGallery/modules/lg-thumbnail.min.js"></script>
+    <script src="./static/js/lightGallery/modules/lg-fullscreen.min.js"></script>
+    <script src="./static/js/lightGallery/modules/lg-zoom.min.js"></script>
+    <script src="./static/js/lightGallery/modules/lg-autoplay.min.js"></script>
+    <!-- Jssor Slider -->
+	<script src="./static/js/jssor.slider/jssor.slider.min.js"></script>
+	<script src="./static/js/jssor.slider/jssor1.js"></script>
+	<script src="./static/js/clipboard.min.js"></script>
+	<script src="./static/js/emojionearea/emojionearea.js"></script>
+	<script src="./static/js/front.js"></script>
+	<script>
+  	//<![CDATA[	
+		    //gallery_list2_init();
+    	
+  		$('.btn_view_parent').on('click', function(e) {
+  			e.preventDefault();
+  			if ( !$(this).closest('div').find('.contact_parent_action').is(':visible') )
+  				$(this).closest('div').find('.contact_parent_action').show();
+  			else
+  				$(this).closest('div').find('.contact_parent_action').hide();
+  		});
+
+  		// youtube API 불러옴
+		var tag = document.createElement('script');
+		tag.src = "https://www.youtube.com/player_api";
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  		
+  		// var $lg = $('.gallery_list').lightGallery();
+
+  		window.onhashchange = function(e) {
+  			var oldURL = e.oldURL.split('#')[1]
+  			var newURL = e.newURL.split('#')[1];
+
+  			if (oldURL == 'more_gallery') {
+  				e.preventDefault();
+  				return false;
+  			}
+  			else if (oldURL == 'more_guest') {
+  				e.preventDefault();
+  				return false;
+  			}
+		}
+
+  		$('#more_gallery').on('click', function(e) {
+  			e.preventDefault();
+
+  			var seq = '42888';
+
+  			$.ajax({
+                method: 'post',
+                url: '/invitation/get_gallery_list/' + seq,
+                dataType: 'json',
+                success: function(data) {
+                	var $lg = $(this);
+
+					$lg.lightGallery({
+						dynamic: true,
+						dynamicEl: data,
+						download: false,
+						autoplay: true
+					});
+
+					$lg.on('onAfterOpen.lg',function(event){
+					    $('.quickmenu').hide();
+					});
+
+					$lg.on('onCloseAfter.lg',function(event){
+					    $('.quickmenu').show();
+					});
+                }
+            });
+  		});
+
+  		
+				var traffic_map = new naver.maps.Map('traffic_map', {center: new naver.maps.LatLng(37.52552790000001, 126.92684990000001)});
+		var traffic_marker = new naver.maps.Marker({
+		    position: new naver.maps.LatLng(37.52552790000001, 126.92684990000001),
+		    map: traffic_map
+		});
+				
+		
+	    Kakao.init('048a9d9ab667fc3b5f6ed77c28d87808');
+
+	    // 카카오내비
+	    function navi_kakao(event){
+	    	event.preventDefault();
+	        Kakao.Navi.start({
+	            name: '제스트',
+	            x: 126.92684990000001,
+	            y: 37.52552790000001,
+	            coordType: 'wgs84'
+	        });
+	    }
+
+	    // 티맵
+	    function navi_tmap(event) {
+	    	event.preventDefault();
+	    	var name = encodeURIComponent('제스트');
+	    	location.href = 'http://www.tmap.co.kr/tmap2/mobile/route.jsp?name=' + name + '&lon=126.92684990000001&lat=37.52552790000001';
+	    }
+
+	    var sns_message = "\uc544\uc5f0\uc774\uc758 \ub3cc\uc794\uce58 \ucd08\ub300\ud569\ub2c8\ub2e4.";
+
+	    // 카카오톡
+	    function sns_kakaotalk(event) {
+	    	event.preventDefault();
+	    	Kakao.Link.sendDefault({
+	    		objectType: 'feed',
+	    		content: {
+	    			title: '김아연 아가 첫번째 생일 입니다.',
+	    			description: sns_message,
+	    			imageUrl: 'https://kj84xen.github.io/ecard/static/theme/img/01.jpg',
+	    			link: {
+	    				mobileWebUrl: 'https://kj84xen.github.io/ecard/',
+	    				webUrl: 'https://kj84xen.github.io/ecard/'
+	    			}
+	    		},
+	    		buttons: [
+	    		{
+	    			title: '초대장 바로가기',
+	    			link: {
+	    				mobileWebUrl: 'https://kj84xen.github.io/ecard/',
+	    				webUrl: 'https://kj84xen.github.io/ecard/'
+	    			}
+	    		}
+	    		]
+	    	});
+	    }
+
+	    // 카카오스토리
+	    function sns_kakaostory(event) {
+	    	event.preventDefault();
+	    	Kakao.Story.open({
+	    		url: 'https://kj84xen.github.io/ecard/',
+	    		text: sns_message
+	    	});
+	    }
+
+	    // 페이스북
+	    function sns_facebook(event) {
+	    	event.preventDefault();
+	    	var text = encodeURIComponent(sns_message);
+	    	var url = 'https://kj84xen.github.io/ecard/';
+	    	var encodeURL = encodeURIComponent(url);
+	    	window.open('https://www.facebook.com/sharer/sharer.php?t=' + text + '&u=' + encodeURL);
+	    }
+
+	    // 위챗
+	    function sns_wechat(event) {
+	    	event.preventDefault();
+	    	alert('죄송합니다.\n준비중 입니다.');
+	    }
+
+	    // 트위터
+	    function sns_twitter(event) {
+	    	event.preventDefault();
+	    	var text = encodeURIComponent(sns_message);
+	    	var url = 'https://kj84xen.github.io/ecard/';
+	    	var encodeURL = encodeURIComponent(url);
+	    	window.open('https://twitter.com/share?text=' + text + '&url=' + encodeURL);
+	    }
+
+	    // 밴드
+	    function sns_band(event) {
+	    	event.preventDefault();
+	    	var content = sns_message;
+	    	var url = 'https://kj84xen.github.io/ecard/';
+
+	    	content = content + "\n" + url;
+	    	var param = 'create/post?text=' + encodeURIComponent(content);
+	    	location.href = 'bandapp://' + param;
+	    }
+	//]]>
+	</script>
+	<iframe frameborder="0" width="0" height="0" name="ifmSubmit" id="ifmSubmit" style="display:none;"></iframe>
+</body>
+</html>
