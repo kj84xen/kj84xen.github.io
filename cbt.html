@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CBT 문제 풀기 | IT 토픽 노트</title>
+<meta name="description" content="IT 토픽 노트에 공개한 토픽으로 직접 만든 문제를 풉니다.">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="./"><img src="img/logo.png" alt="">IT 토픽 노트</a>
+    <nav aria-label="메뉴" data-links>
+      <a class="text" href="cbt.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9 11l2 2 4-4M5 4h14v16H5z"/></svg><span>CBT</span></a>
+    </nav>
+  </header>
+
+  <main class="cbt-main">
+    <div class="cbt-head">
+      <h1>CBT 문제 풀기</h1>
+      <p>공개한 토픽으로 직접 만든 문제예요. 기록은 이 브라우저에만 남아요.</p>
+    </div>
+    <div class="picker" id="picker" role="group" aria-label="문제 고르기"></div>
+    <div class="progress" aria-hidden="true"><i id="bar" style="width:0"></i></div>
+    <div class="q" id="box"></div>
+  </main>
+
+  <footer><span>IT 토픽 노트 · 한경진</span><a href="./">처음으로</a></footer>
+</div>
+<script src="icons.js"></script>
+<script src="questions.js"></script>
+<script src="cbt.js"></script>
+<script>
+(function () {
+  var picker = document.getElementById("picker"), box = document.getElementById("box"), bar = document.getElementById("bar");
+  var topics = [];
+  QUESTIONS.forEach(function (q) { if (topics.indexOf(q.topic) < 0) topics.push(q.topic); });
+  var filters = [{ key: "all", label: "전체" }].concat(topics.map(function (t) { return { key: t, label: t }; }), [{ key: "wrong", label: "틀린 문제" }]);
+  var first = decodeURIComponent(location.hash.slice(1));
+  var current = topics.indexOf(first) >= 0 ? first : "all";
+
+  function list(key) {
+    if (key === "all") return QUESTIONS.slice();
+    if (key === "wrong") { var w = CBT.wrongIds(); return QUESTIONS.filter(function (q) { return w.indexOf(CBT.id(q)) >= 0; }); }
+    return QUESTIONS.filter(function (q) { return q.topic === key; });
+  }
+  function drawPicker() {
+    picker.innerHTML = filters.map(function (f) {
+      var n = list(f.key).length;
+      return '<button type="button" data-k="' + f.key.replace(/"/g, "&quot;") + '" aria-pressed="' + (f.key === current) + '">' + f.label.replace(/[&<>]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; }) + " " + n + "</button>";
+    }).join("");
+    picker.querySelectorAll("button").forEach(function (b) { b.onclick = function () { current = b.dataset.k; start(); }; });
+  }
+  function start() {
+    drawPicker();
+    var qs = list(current), i = 0, right = 0;
+    if (!qs.length) { box.innerHTML = '<div class="result"><p>' + (current === "wrong" ? "틀린 문제가 없어요." : "아직 문제가 없어요.") + "</p></div>"; bar.style.width = "0"; return; }
+    function show() {
+      bar.style.width = (i / qs.length * 100) + "%";
+      if (i >= qs.length) {
+        box.innerHTML = '<div class="result"><b>' + right + " / " + qs.length + "</b><p>" + (right === qs.length ? "모두 맞았어요." : "틀린 문제는 '틀린 문제'에서 다시 풀 수 있어요.") + '</p><div class="cta"><button type="button" class="btn main" id="again">다시 풀기</button></div></div>';
+        document.getElementById("again").onclick = start; drawPicker(); return;
+      }
+      CBT.render(box, qs[i], { index: i + 1, total: qs.length, onResult: function (ok) { if (ok) right++; }, onNext: function () { i++; show(); } });
+    }
+    show();
+  }
+  start();
+})();
+</script>
+</body>
+</html>
