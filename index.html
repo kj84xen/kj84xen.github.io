@@ -11,14 +11,14 @@
 <link rel="icon" href="favicon.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap">
-<link rel="stylesheet" href="style.css?v=202610100030">
+<link rel="stylesheet" href="style.css?v=202610100042">
 </head>
 <body>
 <div class="wrap">
   <header class="top">
     <a class="brand" href="./"><img src="img/logo.png" alt="">IT 토픽 노트</a>
     <nav aria-label="메뉴" data-links>
-      <a class="text" href="cbt.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9 11l2 2 4-4M5 4h14v16H5z"/></svg><span>CBT</span></a>
+      <a class="text" href="practice.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg><span>답안 연습</span></a>
     </nav>
   </header>
 
@@ -26,7 +26,7 @@
     <div class="eyebrow">한경진 · 정보관리기술사 공부 기록</div>
     <h1>하루 한 토픽,<br>답안 한 장</h1>
     <div class="bar"></div>
-    <div class="cta"><a class="btn main" href="#today">오늘의 토픽</a><a class="btn ghost" href="cbt.html">CBT 문제 풀기</a></div>
+    <div class="cta"><a class="btn main" href="#today">오늘의 토픽</a><a class="btn ghost" href="practice.html">답안 연습</a></div>
   </section>
 
   <section class="block" id="today">
@@ -42,20 +42,19 @@
   <section class="block">
     <div class="cbt-intro">
       <div>
-        <div class="head"><h2>CBT 문제 풀기</h2></div>
-        <div class="stats"><div><b id="q-count">0</b><span>문제</span></div><div><b id="q-topics">0</b><span>토픽</span></div><div><b id="my-rate">-</b><span>내 정답률</span></div></div>
-        <div class="cta" style="justify-content:flex-start"><a class="btn main" href="cbt.html">전체 문제 풀기</a></div>
+        <div class="head"><h2>답안 연습</h2></div>
+        <div class="stats"><div><b id="p-count">0</b><span>토픽</span></div><div><b id="p-done">0</b><span>연습한 토픽</span></div><div><b id="p-rate">-</b><span>키워드</span></div></div>
+        <div class="cta" style="justify-content:flex-start"><a class="btn main" href="practice.html">답안 연습 시작</a></div>
       </div>
-      <div class="q" id="preview"></div>
+      <a class="q ask-card" id="p-preview" href="practice.html"></a>
     </div>
   </section>
 
   <footer><span>IT 토픽 노트 · 한경진</span><span>문제와 글은 개인 공부를 위해 직접 정리한 내용이에요.</span></footer>
 </div>
-<script src="icons.js?v=202610100030"></script>
-<script src="topics.js?v=202610100030"></script>
-<script src="questions.js?v=202610100030"></script>
-<script src="cbt.js?v=202610100030"></script>
-<script src="app.js?v=202610100030"></script>
+<script src="icons.js?v=202610100042"></script>
+<script src="topics.js?v=202610100042"></script>
+<script src="practice.js?v=202610100042"></script>
+<script src="app.js?v=202610100042"></script>
 </body>
 </html>
