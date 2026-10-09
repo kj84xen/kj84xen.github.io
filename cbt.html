@@ -8,9 +8,9 @@
 <link rel="icon" href="favicon.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap">
-<link rel="stylesheet" href="style.css?v=202610100026">
+<link rel="stylesheet" href="style.css?v=202610100030">
 </head>
-<body>
+<body class="exam-page">
 <div class="wrap">
   <header class="top">
     <a class="brand" href="./"><img src="img/logo.png" alt="">IT 토픽 노트</a>
@@ -19,57 +19,39 @@
     </nav>
   </header>
 
-  <main class="cbt-main">
-    <div class="cbt-head">
-      <h1>CBT 문제 풀기</h1>
+  <main class="exam">
+    <h1 class="sr">CBT 문제 풀기</h1>
+    <form class="tools" id="tools" role="search" onsubmit="return false">
+      <label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <input type="search" id="kw" placeholder="문제 검색" aria-label="문제 검색" autocomplete="off"></label>
+      <select id="scope" aria-label="토픽 선택"></select>
+      <label class="chk"><input type="checkbox" id="only-wrong"><span>틀린 문제만</span></label>
+      <label class="chk"><input type="checkbox" id="instant"><span>바로 채점</span></label>
+      <div class="zoom" role="group" aria-label="글자 크기">
+        <button type="button" data-z="0" aria-label="글자 크기 보통">가</button><button type="button" data-z="1" aria-label="글자 크기 크게">가</button><button type="button" data-z="2" aria-label="글자 크기 아주 크게">가</button>
+      </div>
+    </form>
+
+    <div class="board">
+      <section class="paper" id="paper" aria-live="polite"></section>
+      <aside class="sheet" id="sheet" aria-label="답안 표기란">
+        <div class="sheet-head"><b>답안 표기란</b><span id="left"></span>
+          <button type="button" class="sheet-close" id="sheet-close" aria-label="닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+        <ol class="omr" id="omr"></ol>
+        <div class="sheet-foot" id="sheet-foot"></div>
+      </aside>
     </div>
-    <div class="picker" id="picker" role="group" aria-label="문제 고르기"></div>
-    <div class="progress" aria-hidden="true"><i id="bar" style="width:0"></i></div>
-    <div class="q" id="box"></div>
   </main>
-
-  <footer><span>IT 토픽 노트 · 한경진</span><a href="./">처음으로</a></footer>
 </div>
-<script src="icons.js?v=202610100026"></script>
-<script src="questions.js?v=202610100026"></script>
-<script src="cbt.js?v=202610100026"></script>
-<script>
-(function () {
-  var picker = document.getElementById("picker"), box = document.getElementById("box"), bar = document.getElementById("bar");
-  var topics = [];
-  QUESTIONS.forEach(function (q) { if (topics.indexOf(q.topic) < 0) topics.push(q.topic); });
-  var filters = [{ key: "all", label: "전체" }].concat(topics.map(function (t) { return { key: t, label: t }; }), [{ key: "wrong", label: "틀린 문제" }]);
-  var first = decodeURIComponent(location.hash.slice(1));
-  var current = topics.indexOf(first) >= 0 ? first : "all";
-
-  function list(key) {
-    if (key === "all") return QUESTIONS.slice();
-    if (key === "wrong") { var w = CBT.wrongIds(); return QUESTIONS.filter(function (q) { return w.indexOf(CBT.id(q)) >= 0; }); }
-    return QUESTIONS.filter(function (q) { return q.topic === key; });
-  }
-  function drawPicker() {
-    picker.innerHTML = filters.map(function (f) {
-      var n = list(f.key).length;
-      return '<button type="button" data-k="' + f.key.replace(/"/g, "&quot;") + '" aria-pressed="' + (f.key === current) + '">' + f.label.replace(/[&<>]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; }) + " " + n + "</button>";
-    }).join("");
-    picker.querySelectorAll("button").forEach(function (b) { b.onclick = function () { current = b.dataset.k; start(); }; });
-  }
-  function start() {
-    drawPicker();
-    var qs = list(current), i = 0, right = 0;
-    if (!qs.length) { box.innerHTML = '<div class="result"><p>' + (current === "wrong" ? "틀린 문제가 없어요." : "아직 문제가 없어요.") + "</p></div>"; bar.style.width = "0"; return; }
-    function show() {
-      bar.style.width = (i / qs.length * 100) + "%";
-      if (i >= qs.length) {
-        box.innerHTML = '<div class="result"><b>' + right + " / " + qs.length + "</b><p>" + (right === qs.length ? "모두 맞았어요." : "틀린 문제는 '틀린 문제'에서 다시 풀 수 있어요.") + '</p><div class="cta"><button type="button" class="btn main" id="again">다시 풀기</button></div></div>';
-        document.getElementById("again").onclick = start; drawPicker(); return;
-      }
-      CBT.render(box, qs[i], { index: i + 1, total: qs.length, onResult: function (ok) { if (ok) right++; }, onNext: function () { i++; show(); } });
-    }
-    show();
-  }
-  start();
-})();
-</script>
+<div class="dock" id="dock">
+  <button type="button" class="btn ghost" id="d-prev" aria-label="이전 문제"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button type="button" class="btn ghost grow" id="d-sheet">답안 표기란 <span id="d-count"></span></button>
+  <button type="button" class="btn ghost" id="d-next" aria-label="다음 문제"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</div>
+<script src="icons.js?v=202610100030"></script>
+<script src="topics.js?v=202610100030"></script>
+<script src="questions.js?v=202610100030"></script>
+<script src="cbt.js?v=202610100030"></script>
+<script src="exam.js?v=202610100030"></script>
 </body>
 </html>

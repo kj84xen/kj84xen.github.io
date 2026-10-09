@@ -45,5 +45,5 @@ window.CBT = (function () {
       });
     });
   }
-  return { render: render, rate: rate, wrongIds: wrongIds, id: id };
+  return { render: render, rate: rate, wrongIds: wrongIds, id: id, record: record, esc: esc };
 })();
