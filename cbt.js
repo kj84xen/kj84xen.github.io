@@ -16,14 +16,21 @@ window.CBT = (function () {
   }
 
   // box에 문제 하나를 그린다. opts: {index, total, onNext}
-  function render(box, q, opts) {
+  function shuffle(q) {
+    var order = q.choices.map(function (_, i) { return i; });
+    for (var i = order.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = order[i]; order[i] = order[j]; order[j] = t; }
+    return { topic: q.topic, q: q.q, why: q.why, choices: order.map(function (i) { return q.choices[i]; }), answer: order.indexOf(q.answer), src: q };
+  }
+
+  function render(box, q0, opts) {
     opts = opts || {};
+    var q = shuffle(q0);
     box.innerHTML =
       '<div class="meta"><span>' + esc(q.topic) + " · 객관식</span><span>" + (opts.index || 1) + " / " + (opts.total || 1) + "</span></div>" +
       "<h3>" + esc(q.q) + "</h3>" +
       q.choices.map(function (c, i) { return '<button type="button" class="opt" data-i="' + i + '"><b>' + "①②③④"[i] + "</b><span>" + esc(c) + "</span></button>"; }).join("") +
       '<div class="why" aria-live="polite"></div>' +
-      (opts.onNext ? '<div class="act" hidden><button type="button" class="btn main next">다음 문제</button></div>' : "");
+      (opts.onNext ? '<div class="act" hidden><button type="button" class="btn main q-next">다음 문제</button></div>' : "");
     var opts$ = box.querySelectorAll(".opt");
     opts$.forEach(function (b) {
       b.addEventListener("click", function () {
@@ -31,10 +38,10 @@ window.CBT = (function () {
         opts$.forEach(function (x) { x.disabled = true; if (+x.dataset.i === q.answer) x.classList.add("ok"); });
         if (!ok) b.classList.add("no");
         box.querySelector(".why").innerHTML = "<strong>" + (ok ? "정답이에요. " : "정답은 " + "①②③④"[q.answer] + "번이에요. ") + "</strong>" + esc(q.why);
-        record(q, ok);
+        record(q0, ok);
         if (opts.onResult) opts.onResult(ok);
         var act = box.querySelector(".act");
-        if (act) { act.hidden = false; act.querySelector(".next").onclick = opts.onNext; act.querySelector(".next").focus(); }
+        if (act) { act.hidden = false; act.querySelector(".q-next").onclick = opts.onNext; act.querySelector(".q-next").focus(); }
       });
     });
   }
