@@ -57,10 +57,13 @@ section.block { padding-block: 56px; border-top: 1px solid var(--line); }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 16px; }
 .card { background: var(--card); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
 .card img { aspect-ratio: 16 / 9; object-fit: cover; }
-.card div { padding: 12px 14px 14px; }
+.card > div { padding: 12px 14px 10px; display: flex; flex-direction: column; flex: 1; }
 .card small { color: var(--mute); font: 500 12px var(--mono); }
 .card strong { display: block; font-size: 16px; margin-top: 2px; }
-.card:hover strong { color: var(--acc); }
+.card .go { display: flex; gap: 4px; margin: auto -8px 0; padding-top: 8px; }
+.card .go a { display: inline-flex; padding: 8px; border-radius: 8px; color: var(--sub); }
+.card .go a:hover { color: var(--acc); background: #1f1f22; }
+.card .go svg { width: 20px; height: 20px; }
 .next { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 2px; }
 .next li { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; color: var(--mute); padding-block: 6px; border-bottom: 1px solid var(--line); font-size: 15px; }
 .next li span:first-child { font: 500 13px/1.9 var(--mono); }
